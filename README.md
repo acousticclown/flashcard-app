@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FlashCard App
+
+A beautiful, modern flashcard application built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui.
+
+## Features
+
+- 🔐 User authentication (Sign up / Login)
+- 📁 Project organization - Create and manage project folders
+- 🎴 Flashcards - Create question/answer flashcards with beautiful 3D flip animations
+- 🎨 Customizable themes - Each project can have its own color
+- ✨ Smooth animations and transitions
+- 🌙 Dark mode support
+
+## Tech Stack
+
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Beautiful, accessible component library
+- **Prisma** - Database ORM
+- **NextAuth v5** - Authentication
+- **Framer Motion** - Animations
+- **SQLite** - Database
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository and navigate to the project:
+
+```bash
+cd flashcard-app
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Set up the database:
+
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+
+4. Create a `.env` file in the root directory:
+
+```env
+DATABASE_URL="file:./prisma/dev.db"
+NEXTAUTH_SECRET="your-secret-key-here"
+NEXTAUTH_URL="http://localhost:3000"
+```
+
+Generate a secret for `NEXTAUTH_SECRET`:
+
+```bash
+openssl rand -base64 32
+```
+
+5. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Sign Up**: Create a new account with your email and password
+2. **Login**: Sign in to your account
+3. **Create Projects**: Click "New Project" to create a project folder with a custom color
+4. **Add Flashcards**: Open a project and click "New Flashcard" to add question/answer pairs
+5. **Study**: Click on any flashcard to flip it and see the answer
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+flashcard-app/
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── dashboard/         # Dashboard page
+│   ├── login/             # Login page
+│   ├── signup/            # Signup page
+│   └── project/           # Project detail pages
+├── components/            # React components
+│   ├── auth/              # Authentication components
+│   ├── dashboard/         # Dashboard components
+│   ├── project/           # Project components
+│   └── ui/                # shadcn/ui components
+├── lib/                   # Utility functions
+│   ├── auth.ts            # NextAuth configuration
+│   └── prisma.ts          # Prisma client
+├── prisma/                # Prisma schema and migrations
+└── types/                 # TypeScript type definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Future Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 🎯 Quiz mode - Test your knowledge with interactive quizzes
+- 📊 Difficulty levels - Mark flashcards as easy, medium, or hard
+- 📈 Progress tracking - Track your learning progress
+- 🔍 Search - Search through your flashcards
+- 📱 Mobile app - Native mobile application
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
