@@ -26,7 +26,9 @@ export function AppSidebar() {
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-4 border-b">
         <div className="w-8 h-8 bg-black dark:bg-white rounded flex items-center justify-center flex-shrink-0">
-          <span className="text-white dark:text-black font-bold text-sm">F</span>
+          <span className="text-white dark:text-black font-bold text-sm">
+            F
+          </span>
         </div>
         <h1 className="text-xl font-bold">Flashy</h1>
       </div>
@@ -65,7 +67,7 @@ export function AppSidebar() {
         </div>
         <Button
           variant="ghost"
-          className="w-full justify-start gap-3"
+          className="w-full justify-start gap-3 p-0"
           onClick={handleLogout}
         >
           <div className="w-8 h-8 rounded-full bg-black dark:bg-white flex items-center justify-center flex-shrink-0">
@@ -86,7 +88,11 @@ export function AppSidebar() {
         className="lg:hidden fixed top-4 left-4 z-50"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
       >
-        {isMobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        {isMobileOpen ? (
+          <X className="w-5 h-5" />
+        ) : (
+          <Menu className="w-5 h-5" />
+        )}
       </Button>
 
       {/* Mobile Sidebar Overlay */}
@@ -120,4 +126,3 @@ export function AppSidebar() {
     </>
   );
 }
-
